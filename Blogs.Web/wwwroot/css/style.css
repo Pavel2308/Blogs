@@ -1,0 +1,20 @@
+﻿.inputName {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    resize: none;
+    min-height: 3em;
+    outline: none;
+    -moz-appearance: none;
+    border: 1px solid #999;
+}
+.inputDesc {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    resize: none;
+    min-height: 20em;
+    outline: none;
+    -moz-appearance: none;
+    border: 1px solid #999;
+}

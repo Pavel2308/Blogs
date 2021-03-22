@@ -1,0 +1,39 @@
+﻿@model EditViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row">
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-md-6">
+                <h4 class="blog-post-title">Категория:</h4>
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <h4 class="blog-post-title">Название:</h4>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+        </div>
+        <div>
+            <label></label>
+            <textarea asp-for="MdDesc" class="inputDesc" placeholder="Введите текст поста"></textarea>
+            <span asp-validation-for="MdDesc" class="text-danger"></span>
+        </div>
+        <p></p>
+        <div align="center">
+            <input type="submit" value="Сохранить" class="btn btn-lg btn-outline-secondary" />
+        </div>
+    </form>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

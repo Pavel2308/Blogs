@@ -1,0 +1,29 @@
+﻿@model DetailsViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+<main class="container">
+    <div class="row">
+        <div>
+            <article class="blog-post">
+                <h2 class="blog-post-title">@Html.DisplayFor(model => model.Title)</h2>
+                <p class="mb-1 text-muted">@Html.DisplayFor(model => model.ReleaseDate) <a> <strong class="d-inline-block mb-2 text-primary">@Html.DisplayFor(model => model.Category)</strong> </a></p>
+                <p>
+                    @Html.Raw(Model.HtmlDesc)
+                </p>
+                <div class="row flex-nowrap justify-content-between align-items-center">
+                    <div class="col-4 pt-1">
+                        <a class="btn btn-sm btn-outline-secondary" asp-controller="Posts" asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a>
+                    </div>
+                    <div class="col-4 d-flex justify-content-end align-items-center">
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="Id" />
+                            <input type="submit" value="Удалить" class="btn btn-sm btn-outline-secondary" />
+                        </form>
+                    </div>
+                </div>
+            </article>
+            <hr>
+        </div>
+    </div>
+</main>

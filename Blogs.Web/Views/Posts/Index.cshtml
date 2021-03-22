@@ -1,0 +1,50 @@
+﻿@model List<IndexViewModel>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+<main class="container">
+    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+            <h1 class="display-4 fst-italic">Напиши пост с помощью Markdown</h1>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-8">
+            <article class="blog-post">
+                @{
+                    foreach (var item in Model)
+                    {
+                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                            <div class="col p-4 d-flex flex-column position-static">
+                                <strong class="d-inline-block mb-2 text-primary">@Html.DisplayFor(modelItem => item.Category)</strong>
+                                <h3 class="mb-0">@Html.DisplayFor(modelItem => item.Title)</h3>
+                                <div class="mb-1 text-muted">@Html.DisplayFor(modelItem => item.ReleaseDate)</div>
+                                <p class="card-text mb-auto">@Html.DisplayFor(modelItem => item.ShortHtmlDesc)</p>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="stretched-link" type="text/html">Читать далее</a>
+                            </div>
+                        </div>
+                    }
+                }
+            </article>
+        </div>
+        <div class="col-md-4">
+            <div class="p-4 mb-3 bg-light rounded">
+                <h4 class="fst-italic">О нас</h4>
+                <p class="mb-0">Веб-приложение для написания постов, с помощью markdown. Есть возможность добавления, редактирования и удаления постов в формате markdown. Организовано хранение исходных markdown в бд. Использован EntityFramwork. Заведены миграции. Посты могут иметь ссылки друг на друга в виде относительных ссылок. Реализована возможность загрузки и хранения изображений, на которые могут быть определены относительные ссылки. У поста есть название, категория, дата публикации. Предусмотрено отображение постов в ленте (сначала свежие). Для ленты посты отображены в режиме предпросмотра - название, дата, категории и начало (некоторая часть) самого поста.</p>
+            </div>
+            <div class="p-4">
+                <h4 class="fst-italic">Контакты</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">ВКонтакте</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+</main>

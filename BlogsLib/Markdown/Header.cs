@@ -7,11 +7,11 @@ namespace Blogs
 {
     public class Header : Element
     {
-        string[] patternString = { @"^\s*\#.*", @"^.*\n\={3,}", @"^.*\n\-{3,}" };
+        string[] patternString = { @"(?m)^\s*\#.*", @"^.*\n\={3,}", @"^.*\n\-{3,}" };
         string[] patternTag = { @"(\s*\#\s*)", @"(^\={3,})", @"(^\={3,})" };
         public Header(string text="")
         {
-            Pattern = @"(^\s*\#.*)|(^.*\n(\=|\-){3,})";
+            Pattern = @"((?m)^\s*\#.*)|(^.*\n(\=|\-){3,})";
             mdText = text;
         }
         private int Level(string text)

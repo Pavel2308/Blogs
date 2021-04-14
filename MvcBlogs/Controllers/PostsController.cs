@@ -67,7 +67,6 @@ namespace MvcBlogs.Controllers
             return View(post);
         }
 
-        static public Post post0 = new Post();
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,7 +75,6 @@ namespace MvcBlogs.Controllers
             }
 
             var post = await _context.Post.FindAsync(id);
-            post0 = post;
             if (post == null)
             {
                 return NotFound();
@@ -93,7 +91,6 @@ namespace MvcBlogs.Controllers
             {
                 return NotFound();
             }
-            post.ReleaseDate = post0.ReleaseDate;
             _markdown.Set(post.MdDesc);
             post.HtmlDesc = _markdown.ToHtml();
             if (ModelState.IsValid)

@@ -1,5 +1,4 @@
-﻿@using System.Text.RegularExpressions;
-@model string[]
+﻿@model string[]
 @{
     ViewData["Title"] = "Добавление файла";
 }
@@ -9,7 +8,6 @@
         @{
             foreach (var name in Model)
             {
-
                 <li>@Regex.Match(name, @"[^((\/)|(\\))]*$")</li>
             }
         }

@@ -1,4 +1,4 @@
-﻿@model List<Blogs.SharedKernel.Models.Post>
+﻿@model List<Blogs.Web.ViewModels.Posts.IndexViewModel>
 
 
 @{
@@ -23,7 +23,7 @@
                                 <strong class="d-inline-block mb-2 text-primary">@Html.DisplayFor(modelItem => item.Category)</strong>
                                 <h3 class="mb-0">@Html.DisplayFor(modelItem => item.Title)</h3>
                                 <div class="mb-1 text-muted">@Html.DisplayFor(modelItem => item.ReleaseDate)</div>
-                                <p class="card-text mb-auto">@Html.DisplayFor(modelItem => item.HtmlDesc)</p>
+                                <p class="card-text mb-auto">@Html.DisplayFor(modelItem => item.ShortHtmlDesc)</p>
                                 <a asp-action="Details" asp-route-id="@item.Id" class="stretched-link" type="text/html">Читать далее</a>
                             </div>
                         </div>

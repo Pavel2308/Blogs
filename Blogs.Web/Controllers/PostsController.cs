@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Blogs.SharedKernel.Models;
 using System.Collections.Generic;
+using Blogs.Web.ViewModels.Posts;
 
 namespace Blogs.Web.Controllers
 {
@@ -22,8 +23,23 @@ namespace Blogs.Web.Controllers
 
         public IActionResult Index()
         {
-            return View(_postManager.List().OrderByDescending(s => s.ReleaseDate).ToList());
-            //return View(new List<Post>());
+            var posts = _postManager.List().OrderByDescending(s => s.ReleaseDate).ToList();
+            var indexViewModels = new List<IndexViewModel>();
+            foreach (var post in posts)
+            {
+                indexViewModels.Add(
+                    new IndexViewModel()
+                    {
+                        Id = post.Id,
+                        Title = post.Title,
+                        ReleaseDate = post.ReleaseDate,
+                        Category = post.Category,
+                        MdDesc = post.MdDesc,
+                        HtmlDesc = post.HtmlDesc,
+                        ShortHtmlDesc = _postManager.GetShortHtmlDesc(post.HtmlDesc)
+                    });
+            }
+            return View(indexViewModels);
         }
 
         public IActionResult Details(int? id)
@@ -33,7 +49,7 @@ namespace Blogs.Web.Controllers
                 return NotFound();
             }
 
-            var post = _postManager.GetById((int)id);
+            var post = _postManager.GetPostById((int)id);
             if (post == null)
             {
                 return NotFound();
@@ -69,7 +85,7 @@ namespace Blogs.Web.Controllers
                 return NotFound();
             }
 
-            var post = _postManager.GetById((int)id);
+            var post = _postManager.GetPostById((int)id);
             if (post == null)
             {
                 return NotFound();
@@ -114,7 +130,7 @@ namespace Blogs.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
-            var post = _postManager.GetById(id);
+            var post = _postManager.GetPostById(id);
             _postManager.Delete(post);
             return RedirectToAction(nameof(Index));
         }

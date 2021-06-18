@@ -14,7 +14,7 @@ namespace Blogs.Web.Managers
         {
             return DataContext.Posts.ToList();
         }
-        public Post GetById(int id)
+        public Post GetPostById(int id)
         {
             return DataContext.Posts.Find(id);
         }
@@ -36,6 +36,27 @@ namespace Blogs.Web.Managers
         public bool Exists(int id)
         {
             return DataContext.Posts.Any(e => e.Id == id);
+        }
+        public string GetShortHtmlDesc(string HtmlDesc)
+        {
+            string text = HtmlDesc;
+            int nWords = 0;
+            string shortText = "";
+            for (int i = 0; (i < text.Length) && (nWords != 15); i++)
+            {
+                if (text[i] == ' ')
+                    nWords++;
+                if (text[i] == '<')
+                {
+                    while ((text[i] != '>') && (i < text.Length))
+                    {
+                        i++;
+                    }
+                }
+                else
+                    shortText += text[i];
+            }
+            return shortText + "...";
         }
     }
 }

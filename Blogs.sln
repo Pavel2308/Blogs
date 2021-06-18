@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blogs.Infrastructure", "Blo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blogs.SharedKernel", "Blogs.SharedKernel\Blogs.SharedKernel.csproj", "{29168725-5C5B-4D24-B747-1AD93EBEA525}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blogs.UnitTests", "BlogsLibTests\Blogs.UnitTests.csproj", "{7D5D8099-7B89-4821-A739-1D88AC3ED8F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blogs.UnitTests", "Blogs.UnitTests\Blogs.UnitTests.csproj", "{29D97960-3A29-4A52-9ADD-BF624E533D8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +39,10 @@ Global
 		{29168725-5C5B-4D24-B747-1AD93EBEA525}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29168725-5C5B-4D24-B747-1AD93EBEA525}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29168725-5C5B-4D24-B747-1AD93EBEA525}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7D5D8099-7B89-4821-A739-1D88AC3ED8F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D5D8099-7B89-4821-A739-1D88AC3ED8F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D5D8099-7B89-4821-A739-1D88AC3ED8F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D5D8099-7B89-4821-A739-1D88AC3ED8F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29D97960-3A29-4A52-9ADD-BF624E533D8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29D97960-3A29-4A52-9ADD-BF624E533D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29D97960-3A29-4A52-9ADD-BF624E533D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29D97960-3A29-4A52-9ADD-BF624E533D8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

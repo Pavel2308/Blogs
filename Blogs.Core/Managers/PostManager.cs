@@ -1,5 +1,4 @@
 ﻿using Blogs.Infrastructure.Data;
-//using Blogs.Web.Data;
 using Blogs.SharedKernel.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,34 +7,34 @@ namespace Blogs.Web.Managers
 {
     public class PostManager : BaseManager
     {
-        public PostManager(BlogsContext dataContext) : base(dataContext)
+        public PostManager(BlogsContext context) : base(context)
         { }
         public List<Post> List()
         {
-            return DataContext.Posts.ToList();
+            return _context.Posts.ToList();
         }
         public Post GetPostById(int id)
         {
-            return DataContext.Posts.Find(id);
+            return _context.Posts.Find(id);
         }
         public void Insert(Post post)
         {
-            DataContext.Posts.Add(post);
-            DataContext.SaveChanges();
+            _context.Posts.Add(post);
+            _context.SaveChanges();
         }
         public void Update(Post post)
         {
-            DataContext.Posts.Update(post);
-            DataContext.SaveChanges();
+            _context.Posts.Update(post);
+            _context.SaveChanges();
         }
         public void Delete(Post post)
         {
-            DataContext.Posts.Remove(post);
-            DataContext.SaveChanges();
+            _context.Posts.Remove(post);
+            _context.SaveChanges();
         }
         public bool Exists(int id)
         {
-            return DataContext.Posts.Any(e => e.Id == id);
+            return _context.Posts.Any(e => e.Id == id);
         }
         public string GetShortHtmlDesc(string HtmlDesc)
         {

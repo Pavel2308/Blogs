@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace Blogs.Core.Markdown
 {
     public abstract class Element
